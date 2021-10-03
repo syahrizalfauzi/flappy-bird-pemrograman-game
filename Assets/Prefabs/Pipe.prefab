@@ -2568,7 +2568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  despawnXPosition: -7
+  despawnXPosition: -15
 --- !u!1 &9085368425487128364
 GameObject:
   m_ObjectHideFlags: 0

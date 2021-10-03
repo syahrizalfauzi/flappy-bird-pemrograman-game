@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class PlayerLogic : MonoBehaviour
@@ -19,10 +21,16 @@ public class PlayerLogic : MonoBehaviour
     [SerializeField] AudioClip deadSound;
     AudioSource az;
 
+    [SerializeField] GameObject GameOver, PauseButton, scorePanel;
+    public Text scoreText;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         az = GetComponent<AudioSource>();
+        PauseButton.SetActive(true);
+        scorePanel.SetActive(true);
+        scoreText.text = "Score: " + score.ToString();
     }
 
     void Update()
@@ -59,6 +67,8 @@ public class PlayerLogic : MonoBehaviour
             az.clip = deadSound;
             az.Play();
 
+            GameOver.SetActive(true);
+            PauseButton.SetActive(false);
             Time.timeScale = 0;
             isDead = true;
         }
@@ -68,5 +78,6 @@ public class PlayerLogic : MonoBehaviour
     public void AddScore()
     {
         score++;
+        scoreText.text = "Score: " + score.ToString();
     }
 }

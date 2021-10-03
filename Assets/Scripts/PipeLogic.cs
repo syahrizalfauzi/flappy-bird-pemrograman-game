@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PipeLogic : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 4f;
-    [SerializeField] float despawnXPosition = -7f;
+    [SerializeField] float despawnXPosition = -20f;
     bool hasScored = false;
 
     void Update()
