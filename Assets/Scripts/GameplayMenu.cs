@@ -24,10 +24,11 @@ public class GameplayMenu : MonoBehaviour
         pauseButton.SetActive(true);
         countdownText.enabled = true;
         StartCoroutine(Countdown(3));
-        
+
     }
 
-    public void Retry(){
+    public void Retry()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
     }
@@ -40,13 +41,13 @@ public class GameplayMenu : MonoBehaviour
 
     IEnumerator Countdown(int countdownTime)
     {
-        while (countdownTime>0)
+        while (countdownTime > 0)
         {
-                countdownText.text = countdownTime.ToString();
+            countdownText.text = countdownTime.ToString();
 
-                yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSecondsRealtime(1f);
 
-                countdownTime--;
+            countdownTime--;
         }
         countdownText.enabled = false;
 

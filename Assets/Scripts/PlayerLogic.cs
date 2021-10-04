@@ -17,8 +17,7 @@ public class PlayerLogic : MonoBehaviour
     Rigidbody2D rb;
 
 
-    [SerializeField] AudioClip flapSound;
-    [SerializeField] AudioClip deadSound;
+    [SerializeField] AudioClip flapSound, deadSound, scoreSound;
     AudioSource az;
 
     [SerializeField] GameObject GameOver, PauseButton, scorePanel;
@@ -79,5 +78,7 @@ public class PlayerLogic : MonoBehaviour
     {
         score++;
         scoreText.text = "Score: " + score.ToString();
+        az.clip = scoreSound;
+        az.Play();
     }
 }
